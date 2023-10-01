@@ -1,0 +1,15 @@
+<mat-list class="list" role="list">
+    <ng-container *ngFor="let repository of response?.items">
+        <mat-list-item
+            [disabled]="repository?.disabled"
+            role="listitem"
+            class="list-item"
+            (click)="goToRepositoryDetails(repository)"
+        >
+            <mat-icon matListItemIcon>drive_folder_upload</mat-icon>
+            <div matListItemTitle>{{ repository?.full_name }}</div>
+            <div matListItemLine>Updated: {{ repository?.updated_at | date }}</div>
+            <div matListItemLine class="item-stars">Stars: {{ repository?.stargazers_count | numberFormat }}</div>
+        </mat-list-item>
+    </ng-container>
+</mat-list>

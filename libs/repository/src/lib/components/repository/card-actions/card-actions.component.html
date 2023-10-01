@@ -1,0 +1,13 @@
+<a
+    *ngIf="isIssuesRoute; else showIssuesBtn"
+    class="show-issues-bt"
+    mat-raised-button
+    color="primary"
+    mat-button
+    routerLink="./"
+    >Hide issues</a
+>
+
+<ng-template #showIssuesBtn>
+    <a [routerLink]="routes.Issues" class="show-issues-bt" mat-raised-button color="primary" mat-button>Show issues</a>
+</ng-template>

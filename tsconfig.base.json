@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "auth/routes": ["libs/auth/src/lib/auth.routes.ts"],
+      "repository/routes": ["libs/repository/src/lib/repository.routes.ts"],
+      "shared-core": ["libs/shared/core/src/index.ts"],
+      "shared-ui": ["libs/shared/ui/src/index.ts"],
+      "user/routes": ["libs/user/src/lib/user.routes.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

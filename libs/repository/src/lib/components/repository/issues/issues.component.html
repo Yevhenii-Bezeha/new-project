@@ -1,0 +1,39 @@
+<mat-spinner *ngIf="isLoading(); else content"></mat-spinner>
+
+<ng-template #content>
+  <h1 class="title">Issues</h1>
+  <ng-container *ngIf="response">
+    <mat-list class="list" role="list">
+      <ng-container *ngFor="let issue of response.items">
+        <mat-list-item role="listitem" class="list-item">
+          <mat-icon matListItemIcon>report_problem</mat-icon>
+          <div matListItemTitle>{{ issue?.title }}</div>
+          <div matListItemLine>
+            Assignee: <span class="accent">{{ issue?.assignee?.name }}</span>
+          </div>
+          <div matListItemLine>
+            Created by:
+            <span class="accent">{{ issue?.user?.login }}</span>
+          </div>
+          <div matListItemLine>
+            Created at:
+            <span class="accent">{{ issue?.created_at | date }}</span>
+          </div>
+          <div matListItemLine>
+            Last update:
+            <span class="accent">{{ issue?.updated_at | date }}</span>
+          </div>
+          <div matListItemLine>
+            Comments: <span class="accent">{{ issue?.comments }}</span>
+          </div>
+        </mat-list-item>
+      </ng-container>
+    </mat-list>
+    <paginator
+      [length]="response.total_count"
+      [pageIndex]="pageIndex"
+      [pageSize]="pageSize"
+      (pageEvent)="onPageEvent($event)"
+    />
+  </ng-container>
+</ng-template>

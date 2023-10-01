@@ -1,0 +1,26 @@
+.list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+}
+
+.card {
+    background-color: var(--secondary-bg-color);
+}
+
+.list-item {
+    width: 300px;
+    height: 100% !important;
+    background-color: var(--secondary-bg-color);
+    border-radius: 6px;
+}
+
+.list-item:hover {
+    cursor: pointer;
+    background-color: var(--hover-primary-bg-color);
+    border-radius: 6px;
+}
+
+.list-item:hover .card {
+    background-color: var(--hover-primary-bg-color);
+}

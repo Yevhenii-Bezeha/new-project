@@ -1,0 +1,24 @@
+<div class="auth-page">
+    <div>
+        <h1 class="title">Log In</h1>
+        <div class="form-container">
+            <mat-spinner *ngIf="isLoading(); else content"></mat-spinner>
+        </div>
+    </div>
+</div>
+
+<ng-template #content>
+    <h3 class="title">Paste your personal access token</h3>
+    <form [formGroup]="form" class="auth-form">
+        <mat-form-field>
+            <mat-label>Personal access key</mat-label>
+            <input matInput type="text" formControlName="input" />
+            <button *ngIf="form.controls.input.value" matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </form>
+    <button [disabled]="(disabled$ | async)!!" class="submit-btn" mat-raised-button color="primary" (click)="submit()">
+        Submit
+    </button>
+</ng-template>

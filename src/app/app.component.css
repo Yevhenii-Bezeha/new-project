@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 800px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.main-wrapper {
+  flex-grow: 1;
+}
+
+.footer {
+  padding-top: 20px;
+  margin-top: auto;
+  text-align: center;
+}
+
+/* stylelint-disable -- override angular material*/
+::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  color: white !important;
+  background: #E07E77 !important;
+}

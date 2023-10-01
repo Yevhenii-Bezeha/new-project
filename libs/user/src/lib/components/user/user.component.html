@@ -1,0 +1,16 @@
+<h1 class="title">Sorry, this section is under development currently. Please try to visit it later</h1>
+
+<div>
+    <a [routerLink]="'../../' + routes.Repositories" mat-raised-button color="primary">Go to repositories </a>
+</div>
+
+<ng-container *ngIf="usersDetails$ | async as userDetails">
+    <img [ngSrc]="userDetails.avatar_url" width="200" height="200" alt="" />
+    <p>Created at: {{ userDetails?.created_at }}</p>
+    <p>Followers: {{ userDetails?.followers }}</p>
+    <p>Following: {{ userDetails?.following }}</p>
+    <p>Login: {{ userDetails?.login }}</p>
+    <p>Public repos: {{ userDetails?.public_repos }}</p>
+</ng-container>
+
+<mat-spinner *ngIf="isLoading()"></mat-spinner>

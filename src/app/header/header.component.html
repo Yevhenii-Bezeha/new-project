@@ -1,0 +1,23 @@
+<header class="header">
+    <div class="nav-container">
+        <a class="logo" mat-button href="/">
+            <svg width="50" height="50">
+                <use href="./../assets/logo.svg#logo"></use>
+            </svg>
+        </a>
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a [routerLink]="routes.Home" mat-button routerLinkActive="active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="routes.Users" mat-button routerLinkActive="active">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="routes.Repositories" mat-button routerLinkActive="active">Repositories</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <button mat-raised-button color="accent" (click)="goToAuth()">Change API Token</button>
+</header>

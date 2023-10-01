@@ -1,0 +1,14 @@
+<mat-list class="list" role="list">
+    <ng-container *ngFor="let user of response.items">
+        <mat-list-item role="listitem" class="list-item" (click)="goToUserDetails(user?.login)">
+            <mat-card class="card">
+                <mat-card-header>
+                    <mat-card-title-group>
+                        <mat-card-title>{{ user?.login }}</mat-card-title>
+                        <img [ngSrc]="user?.avatar_url" width="80" height="80" mat-card-sm-image />
+                    </mat-card-title-group>
+                </mat-card-header>
+            </mat-card>
+        </mat-list-item>
+    </ng-container>
+</mat-list>

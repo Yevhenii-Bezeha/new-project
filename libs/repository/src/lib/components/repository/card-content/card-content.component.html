@@ -1,0 +1,22 @@
+<mat-list *ngIf="repository" role="list" class="list">
+    <mat-list-item role="listitem" class="item">
+        <span matListItemLine>Created:</span>
+        <span class="accent">{{ repository.created_at | date }}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+        <span matListItemLine>Stars:</span>
+        <span class="accent">{{ repository.stargazers_count | numberFormat }}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+        <span matListItemLine>Forks:</span>
+        <span class="accent">{{ repository.forks | numberFormat }}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+        <span matListItemLine> Open issues:</span>
+        <span class="accent">{{ repository.open_issues | numberFormat }}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+        <span matListItemLine> Watchers:</span>
+        <span class="accent">{{ repository.watchers | numberFormat }}</span>
+    </mat-list-item>
+</mat-list>

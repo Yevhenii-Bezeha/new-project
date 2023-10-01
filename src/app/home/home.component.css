@@ -1,0 +1,37 @@
+.home {
+    height: 80%;
+    background-image: linear-gradient(
+            rgba(46, 47, 66, 90%),
+            rgba(46, 47, 66, 90%)
+    ),
+    url("../../assets/home.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 1px solid var(--primary-text-color);
+    border-radius: 10px;
+}
+
+.title {
+    padding-top: 150px;
+    text-align: center;
+    font-size: 32px;
+    color: var(--primary-text-color);
+    margin-bottom: 150px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+}
+
+.cta-text {
+    color: var(--accent-color);
+}
+
+.cta-btn {
+    width: 200px;
+}

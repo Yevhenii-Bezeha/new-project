@@ -1,0 +1,18 @@
+.card {
+  border: 1px solid var(--primary-text-color);
+  border-radius: 10px;
+}
+
+.avatar-info {
+  margin-left: auto;
+}
+
+.avatar-img {
+  border-radius: 8px;
+}
+
+.title {
+  margin-bottom: 20px;
+  color: var(--primary-text-color);
+}
+

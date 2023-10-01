@@ -1,0 +1,16 @@
+<div *ngIf="isLoading(); else content" class="spinner-container">
+    <mat-spinner class="centered-spinner"></mat-spinner>
+</div>
+
+<ng-template #content>
+    <h1 class="title">Public Repositories</h1>
+    <ng-container *ngIf="response">
+        <lib-repositories-list [response]="response" />
+        <paginator
+            [length]="response.total_count"
+            [pageIndex]="pageIndex"
+            [pageSize]="pageSize"
+            (pageEvent)="onPageEvent($event)"
+        />
+    </ng-container>
+</ng-template>

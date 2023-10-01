@@ -1,0 +1,30 @@
+<mat-card *ngIf="repository" class="card">
+    <mat-card-header>
+        <mat-card-title class="title">
+            Repo name:
+            <span class="accent"> {{ repository.name }}</span>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <a [href]="repository.git_url | gitUrlConverter" mat-raised-button color="primary" target="_blank"
+                >Check on GitHub</a
+            >
+        </mat-card-subtitle>
+        <div *ngIf="repository.owner" class="avatar-info">
+            <mat-card-title class="title"
+                >Owner:
+                <span class="accent">{{ repository.owner.login }}</span>
+            </mat-card-title>
+            <div class="avatar-img">
+                <img [ngSrc]="repository.owner.avatar_url" width="112" height="112" mat-card-md-image alt="" />
+            </div>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+        <lib-card-content [repository]="repository" />
+    </mat-card-content>
+    <mat-card-actions>
+        <lib-card-actions [isIssuesRoute]="(isIssuesRoute$ | async)!" />
+    </mat-card-actions>
+</mat-card>
+
+<router-outlet />
