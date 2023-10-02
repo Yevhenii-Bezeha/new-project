@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { provideAnimations } from '@angular/platform-browser/animations';\nimport { provideRouter } from '@angular/router';\nimport { appRoutes } from './app.routes';\nexport const appConfig = {\n  providers: [provideRouter(appRoutes), provideAnimations()]\n};","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

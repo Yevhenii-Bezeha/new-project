@@ -1,0 +1,1 @@
+{"ast":null,"code":"import AuthComponent from './components/auth.component';\nexport const routes = [{\n  path: '',\n  component: AuthComponent,\n  title: 'Auth'\n}];\nexport default routes;","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
