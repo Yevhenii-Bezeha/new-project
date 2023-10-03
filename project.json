@@ -8,25 +8,27 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/gitexplorer",
         "index": "./src/index.html",
         "main": "./src/main.ts",
-        "polyfills": [
-          "zone.js"
-        ],
+        "polyfills": ["zone.js"],
         "tsConfig": "./tsconfig.app.json",
-        "assets": [
-          "./src/favicon.ico",
-          "./src/assets"
-        ],
+        "assets": ["./src/favicon.ico", "./src/assets"],
         "styles": [
-          "./libs/shared/ui/src/lib/styles/main.css",
-          "./src/styles.css",
-          "@angular/material/prebuilt-themes/purple-green.css"
+          {
+            "input": "./src/critical.css",
+            "inject": true
+          },
+          {
+            "input": "./src/styles.css",
+            "inject": false
+          },
+          {
+            "input": "@angular/material/prebuilt-themes/purple-green.css",
+            "inject": false
+          }
         ],
         "scripts": []
       },
@@ -78,21 +80,14 @@
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "./src/**/*.ts",
-          "./src/**/*.html"
-        ]
+        "lintFilePatterns": ["./src/**/*.ts", "./src/**/*.html"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectName}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
       "options": {
         "jestConfig": "jest.config.app.ts",
         "passWithNoTests": true
@@ -112,13 +107,28 @@
     },
     "stylelint": {
       "executor": "nx-stylelint:lint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "src/**/*.css"
-        ]
+        "lintFilePatterns": ["src/**/*.css"]
+      }
+    },
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "gitexplorer:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "gitexplorer:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "gitexplorer:serve-static"
+        },
+        "watch": {
+          "watch": true
+        }
       }
     }
   }

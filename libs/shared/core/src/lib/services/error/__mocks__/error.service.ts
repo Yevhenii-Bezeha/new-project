@@ -1,4 +1,4 @@
-import { EMPTY, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 export const ErrorService = jest.fn().mockImplementation(() => {
     return {

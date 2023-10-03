@@ -1,5 +1,5 @@
 <mat-list class="list" role="list">
-    <ng-container *ngFor="let user of response.items">
+    <ng-container *ngFor="let user of response.items; trackBy: trackByFn">
         <mat-list-item role="listitem" class="list-item" (click)="goToUserDetails(user?.login)">
             <mat-card class="card">
                 <mat-card-header>

@@ -5,6 +5,8 @@ import { MatListModule } from '@angular/material/list';
 import { Router } from '@angular/router';
 import { RoutesEnum, SearchResult } from 'shared-core';
 
+import { IUserDetails } from '../../../models/user-details';
+
 @Component({
     selector: 'lib-users-list',
     standalone: true,
@@ -16,10 +18,13 @@ import { RoutesEnum, SearchResult } from 'shared-core';
 export class UsersListComponent {
     @Input({ required: true }) response!: SearchResult;
 
-    constructor(private router: Router) {
-    }
+    constructor(private router: Router) {}
 
     async goToUserDetails(userLogin: string): Promise<void> {
         await this.router.navigate([RoutesEnum.Users, userLogin]);
+    }
+
+    trackByFn(_: number, item: IUserDetails) {
+        return item.created_at;
     }
 }

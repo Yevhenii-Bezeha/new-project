@@ -1,5 +1,6 @@
 <a
     *ngIf="isIssuesRoute; else showIssuesBtn"
+    e2e="CardActions-HideIssues-Btn"
     class="show-issues-bt"
     mat-raised-button
     color="primary"
@@ -9,5 +10,13 @@
 >
 
 <ng-template #showIssuesBtn>
-    <a [routerLink]="routes.Issues" class="show-issues-bt" mat-raised-button color="primary" mat-button>Show issues</a>
+    <a
+        [routerLink]="routes.Issues"
+        e2e="CardActions-ShowIssues-Btn"
+        class="show-issues-bt"
+        mat-raised-button
+        color="primary"
+        mat-button
+        >Show issues</a
+    >
 </ng-template>

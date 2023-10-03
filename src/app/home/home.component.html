@@ -1,18 +1,34 @@
 <div class="home">
     <div class="container">
         <ng-container *ngIf="loggedIn(); else logInTemplate">
-            <h1 class="title">You are now logged in</h1>
+            <h1 e2e="Home-Title-Text" class="title">You are now logged in</h1>
             <div>
-                <h2 class="cta-text">Your Hub for GitHub</h2>
-                <button class="cta-btn" mat-raised-button color="primary" (click)="goToRepos()">Start exploring</button>
+                <h2 e2e="Home-SubTitle-Text" class="cta-text">Your Hub for GitHub</h2>
+                <button
+                    e2e="Home-GoToRepos-Btn"
+                    class="cta-btn"
+                    mat-raised-button
+                    color="primary"
+                    (click)="goToRepos()"
+                >
+                    Browse repositories
+                </button>
             </div>
         </ng-container>
 
         <ng-template #logInTemplate>
-            <h1 class="title">Welcome to GitHubExplorer</h1>
+            <h1 e2e="Home-Title-Text" class="title">Welcome to GitHubExplorer</h1>
             <div>
-                <h2 class="cta-text">Log In to start Your Journey</h2>
-                <button class="cta-bt" mat-raised-button color="primary" (click)="goToLogin()">Log In</button>
+                <h2 e2e="Home-SubTitle-Text" class="cta-text">Log In to start Your Journey</h2>
+                <button
+                    e2e="Home-GoToLogin-Button"
+                    class="cta-btn"
+                    mat-raised-button
+                    color="primary"
+                    (click)="goToLogin()"
+                >
+                    Log In
+                </button>
             </div>
         </ng-template>
     </div>

@@ -3,9 +3,10 @@ import type { OnInit } from '@angular/core';
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter, map, Observable } from 'rxjs';
 import { GitUrlConverterPipe, RoutesEnum } from 'shared-core';
+import { E2EDirective } from 'shared-core';
 
 import { IRepository } from '../../models/repository';
 import { RepositoryService } from '../../services/repository/repository.service';
@@ -28,7 +29,8 @@ import { CardContentComponent } from './card-content/card-content.component';
         GitUrlConverterPipe,
         NgIf,
         AsyncPipe,
-        MatButtonModule
+        MatButtonModule,
+        E2EDirective
     ]
 })
 export class RepositoryComponent implements OnInit, OnDestroy {

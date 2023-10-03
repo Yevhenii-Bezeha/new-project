@@ -9,18 +9,17 @@ export const routes: Routes = [
     {
         path: '',
         component: RepositoriesComponent,
-        pathMatch: 'full',
-        title: 'Users'
+        pathMatch: 'full'
     },
     {
         path: `:${RoutesEnum.RepositoryName}`,
         component: RepositoryComponent,
-        title: 'Repository details',
+        title: 'Repository details page',
         children: [
             {
                 path: RoutesEnum.Issues,
                 component: IssuesComponent,
-                title: 'Repository Issues'
+                title: 'Repository Issues page'
             }
         ]
     }

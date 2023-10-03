@@ -8,14 +8,13 @@ export const routes: Routes = [
     {
         path: '',
         component: UsersComponent,
-        pathMatch: 'full',
-        title: 'Users'
+        pathMatch: 'full'
     },
     {
         path: `:${RoutesEnum.UserLogin}`,
         component: UserComponent,
         pathMatch: 'full',
-        title: 'User'
+        title: 'User details page'
     }
 ];
 

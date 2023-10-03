@@ -13,25 +13,25 @@
 }
 
 .title {
-    padding-top: 150px;
     text-align: center;
     font-size: 32px;
     color: var(--primary-text-color);
-    margin-bottom: 150px;
 }
 
 .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
     text-align: center;
+    height: 100%;
 }
 
 .cta-text {
     color: var(--accent-color);
+    margin-bottom: 70px;
 }
 
 .cta-btn {
-    width: 200px;
+    width: 100%;
 }

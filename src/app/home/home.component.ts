@@ -4,6 +4,7 @@ import type { OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { AuthService, RoutesEnum } from 'shared-core';
+import { E2EDirective } from 'shared-core';
 
 @Component({
     selector: 'app-home',
@@ -11,7 +12,7 @@ import { AuthService, RoutesEnum } from 'shared-core';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatButtonModule, NgIf]
+    imports: [MatButtonModule, NgIf, E2EDirective]
 })
 export default class HomeComponent implements OnInit {
     loggedIn: WritableSignal<boolean> = signal(false);

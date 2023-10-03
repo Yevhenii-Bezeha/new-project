@@ -12,9 +12,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { Router } from '@angular/router';
 import { catchError, EMPTY, finalize, map, Observable, startWith } from 'rxjs';
 import { AuthService, ErrorService, HttpStatusCode, OctokitGeneralService, RoutesEnum } from 'shared-core';
+import { E2EDirective } from 'shared-core';
 
 interface IAddPersonalKeyForm {
     input: FormControl<string>;
@@ -32,13 +34,16 @@ interface IAddPersonalKeyForm {
         MatInputModule,
         MatIconModule,
         MatButtonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatTooltipModule,
+        E2EDirective
     ]
 })
 export default class AuthComponent {
     isLoading: WritableSignal<boolean> = signal(false);
     form: FormGroup<IAddPersonalKeyForm>;
     disabled$: Observable<boolean>;
+    isGoToGitHubPersonalTokenCreationVisible: WritableSignal<boolean> = signal(false);
 
     private destroyRef: DestroyRef = inject(DestroyRef);
 
@@ -67,6 +72,7 @@ export default class AuthComponent {
                 finalize(() => this.isLoading.set(false)),
                 catchError(result => {
                     this.errorService.setError(result.message);
+                    this.isGoToGitHubPersonalTokenCreationVisible.set(true);
                     this.form.controls.input.reset();
                     this.authService.setLoggedIn(false);
 
@@ -79,6 +85,7 @@ export default class AuthComponent {
                     return;
                 }
 
+                this.isGoToGitHubPersonalTokenCreationVisible.set(false);
                 void this.successAuthActions();
             });
     }

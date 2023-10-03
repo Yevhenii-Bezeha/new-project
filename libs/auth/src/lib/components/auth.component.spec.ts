@@ -32,7 +32,7 @@ describe('AuthComponent', () => {
     });
 
     it('should show correct title', () => {
-        const elementTitle = fixture.debugElement.query(By.css('.title'));
+        const elementTitle = fixture.debugElement.query(By.css('.main-title'));
         const titleTextH1 = elementTitle.nativeElement.textContent;
 
         expect(titleTextH1).toContain('Log In');

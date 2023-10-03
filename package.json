@@ -5,13 +5,17 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "build:prod": "nx build --prod",
     "test": "nx test",
     "graph:affected": "nx affected:graph",
     "build:affected": "nx affected --target=build",
+    "build:prod": "nx build --prod",
     "test:affected": "nx affected --target=test",
+    "test:ci": "npx nx run-many --target=test",
     "lint:affected": "nx affected --target=lint --fix",
-    "slint:affected": "nx affected --target=stylelint --fix"
+    "lint:ci": "npx nx run-many --target=lint",
+    "slint:affected": "nx affected --target=stylelint --fix",
+    "slint:ci": "npx nx run-many --target=stylelint",
+    "e2e:watch": "nx e2e gitexplorer --configuration=watch"
   },
   "private": true,
   "dependencies": {
@@ -42,7 +46,7 @@
     "@angular/cli": "~16.2.0",
     "@angular/compiler-cli": "~16.2.0",
     "@angular/language-service": "~16.2.0",
-    "@nx/cypress": "16.9.0",
+    "@nx/cypress": "^16.9.0",
     "@nx/eslint-plugin": "16.9.0",
     "@nx/jest": "16.9.0",
     "@nx/js": "16.9.0",
@@ -56,7 +60,6 @@
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
-    "angular-cli-ghpages": "^1.0.7",
     "cypress": "^13.0.0",
     "eslint": "^8.50.0",
     "eslint-config-airbnb-base": "^15.0.0",

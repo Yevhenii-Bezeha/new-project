@@ -1,37 +1,58 @@
 .auth-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70%;
 }
 
 .form-container {
-  padding: 40px;
-  border-radius: 10px;
-  border: 1px solid var(--primary-text-color);
-  width: 500px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 20px;
-  align-items: center;
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--primary-text-color);
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: center;
 }
 
 .auth-form {
-  width: 100%;
+    width: 100%;
 }
 
 .submit-btn {
-  width: 100%;
+    width: 100%;
 }
 
-.title {
-  text-align: center;
-  margin-bottom: 20px;
-  color: var(--primary-text-color);
+.go-to-git-hub-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.error-text {
+    color: var(--error-color);
+}
+
+.main-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-text-color);
+}
+
+.secondary-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: var(--primary-text-color);
+}
+
+.tooltip-icon{
+    margin-left: 4px;
+    cursor: pointer;
 }
 
 mat-form-field {
-  width: 100%;
+    width: 100%;
 }

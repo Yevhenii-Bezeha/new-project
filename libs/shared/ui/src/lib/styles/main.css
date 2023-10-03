@@ -1,2 +1,6 @@
-/* stylelint-disable -- override angular material*/
-@import "variables.css";
+/* stylelint-disable */
+@import url('./variables.css');
+
+.mock-class{
+
+}

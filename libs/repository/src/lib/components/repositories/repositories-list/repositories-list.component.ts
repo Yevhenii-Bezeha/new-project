@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { Router } from '@angular/router';
 import { NumberFormatPipe, RoutesEnum, SearchResult } from 'shared-core';
+import { E2EDirective } from 'shared-core';
 
 import { IRepository } from '../../../models/repository';
 import { RepositoryService } from '../../../services/repository/repository.service';
@@ -14,7 +15,7 @@ import { RepositoryService } from '../../../services/repository/repository.servi
     templateUrl: './repositories-list.component.html',
     styleUrls: ['./repositories-list.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatListModule, MatIconModule, DatePipe, NumberFormatPipe, NgForOf]
+    imports: [MatListModule, MatIconModule, DatePipe, NumberFormatPipe, NgForOf, E2EDirective]
 })
 export class RepositoriesListComponent {
     @Input({ required: true }) response!: SearchResult;
@@ -25,5 +26,9 @@ export class RepositoriesListComponent {
         await this.router.navigate([RoutesEnum.Repositories, repository.name]);
 
         this.repositoryService.setRepositoryDetails(repository);
+    }
+
+    trackByFn(_: number, item: IRepository) {
+        return item.created_at;
     }
 }

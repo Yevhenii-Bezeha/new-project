@@ -1,6 +1,6 @@
 <div class="auth-page">
     <div>
-        <h1 class="title">Log In</h1>
+        <h1 class="main-title">Log In</h1>
         <div class="form-container">
             <mat-spinner *ngIf="isLoading(); else content"></mat-spinner>
         </div>
@@ -8,9 +8,20 @@
 </div>
 
 <ng-template #content>
-    <h3 class="title">Paste your personal access token</h3>
+    <h3 class="secondary-title">
+        Paste your personal access token
+        <mat-icon
+            matTooltipShowDelay="500"
+            matTooltip="We don't store your personal access key locally.
+            You'll need to enter your token every time you revisit the webpage."
+            matTooltipPosition="above"
+            class="tooltip-icon"
+            aria-label="Personal access key description"
+            fontIcon="info"
+        ></mat-icon>
+    </h3>
     <form [formGroup]="form" class="auth-form">
-        <mat-form-field>
+        <mat-form-field e2e="Auth-Form-Input">
             <mat-label>Personal access key</mat-label>
             <input matInput type="password" formControlName="input" />
             <button *ngIf="form.controls.input.value" matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
@@ -18,7 +29,29 @@
             </button>
         </mat-form-field>
     </form>
-    <button [disabled]="(disabled$ | async)!!" class="submit-btn" mat-raised-button color="primary" (click)="submit()">
+    <button
+        [disabled]="(disabled$ | async)!!"
+        e2e="Auth-Submit-Btn"
+        class="submit-btn"
+        mat-raised-button
+        color="primary"
+        (click)="submit()"
+    >
         Submit
     </button>
+
+    <div *ngIf="isGoToGitHubPersonalTokenCreationVisible()" class="go-to-git-hub-section">
+        <h4 class="error-text" e2e="Auth-Error-Text">
+            The token you provided is invalid. Please follow these instructions to generate a new Token
+        </h4>
+        <a
+            mat-raised-button
+            color="primary"
+            target="_blank"
+            href="https://docs.github.com/en/authentication/
+            keeping-your-account-and-data-secure/managing-your-personal-access-tokens"
+        >
+            Go to GitHub
+        </a>
+    </div>
 </ng-template>

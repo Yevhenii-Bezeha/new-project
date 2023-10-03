@@ -5,10 +5,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { PageEvent } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BaseList, ErrorService } from 'shared-core';
+import { E2EDirective } from 'shared-core';
 import { PaginatorComponent } from 'shared-ui';
 
+import { IIssue } from '../../../models/issue';
 import { IRepository } from '../../../models/repository';
 import { RepositoryService } from '../../../services/repository/repository.service';
 
@@ -18,7 +21,17 @@ import { RepositoryService } from '../../../services/repository/repository.servi
     templateUrl: './issues.component.html',
     styleUrls: ['./issues.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatProgressSpinnerModule, MatListModule, MatIconModule, PaginatorComponent, NgIf, NgForOf, DatePipe]
+    imports: [
+        MatProgressSpinnerModule,
+        MatListModule,
+        MatIconModule,
+        PaginatorComponent,
+        NgIf,
+        NgForOf,
+        DatePipe,
+        MatTooltipModule,
+        E2EDirective
+    ]
 })
 export class IssuesComponent extends BaseList implements OnInit {
     repository: IRepository | null = null;
@@ -45,6 +58,10 @@ export class IssuesComponent extends BaseList implements OnInit {
         if (this.repository) {
             this.localFetchData(this.repository.full_name);
         }
+    }
+
+    trackByFn(_: number, item: IIssue) {
+        return item.created_at;
     }
 
     private localFetchData(repositoryFullName: string): void {

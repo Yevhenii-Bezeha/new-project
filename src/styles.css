@@ -1,29 +1,10 @@
-html,
-body,
-#root {
-  border: 0;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background-color: var(--primary-bg-color);
-  font-family: var(--primary-font-family), 'Helvetica Neue', sans-serif;
-  font-style: normal;
-}
+@import url('./../libs/shared/ui/src/lib/styles/main.css');
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
-

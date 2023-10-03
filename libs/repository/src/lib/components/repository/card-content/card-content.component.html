@@ -3,19 +3,50 @@
         <span matListItemLine>Created:</span>
         <span class="accent">{{ repository.created_at | date }}</span>
     </mat-list-item>
-    <mat-list-item role="listitem">
+    <mat-list-item
+        role="listitem"
+        matTooltipShowDelay="500"
+        matTooltip="Starring makes it easy to find a repository or topic again later.
+        You can see all the repositories and topics you have starred by going to your stars page"
+        matTooltipPosition="above"
+        aria-label="Stars description"
+        class="item"
+    >
         <span matListItemLine>Stars:</span>
         <span class="accent">{{ repository.stargazers_count | numberFormat }}</span>
     </mat-list-item>
-    <mat-list-item role="listitem">
+    <mat-list-item
+        role="listitem"
+        matTooltipShowDelay="500"
+        matTooltip="A fork is a new repository that shares code and
+        visibility settings with the original upstream repository."
+        matTooltipPosition="above"
+        aria-label="Stars description"
+        class="item"
+    >
         <span matListItemLine>Forks:</span>
         <span class="accent">{{ repository.forks | numberFormat }}</span>
     </mat-list-item>
-    <mat-list-item role="listitem">
+    <mat-list-item
+        role="listitem"
+        matTooltipShowDelay="500"
+        matTooltip="Issues let you track your work on GitHub, where development happens."
+        matTooltipPosition="above"
+        aria-label="Stars description"
+        class="item"
+    >
         <span matListItemLine> Open issues:</span>
         <span class="accent">{{ repository.open_issues | numberFormat }}</span>
     </mat-list-item>
-    <mat-list-item role="listitem">
+    <mat-list-item
+        role="listitem"
+        matTooltipShowDelay="500"
+        matTooltip="Watchers are Github users who have asked to be notified of activity
+        in a repository, but have not become collaborators."
+        matTooltipPosition="above"
+        aria-label="Watchers description"
+        class="item"
+    >
         <span matListItemLine> Watchers:</span>
         <span class="accent">{{ repository.watchers | numberFormat }}</span>
     </mat-list-item>
