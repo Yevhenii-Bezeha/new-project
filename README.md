@@ -48,6 +48,16 @@ You can access the live [website](https://yevhenii-bezeha.github.io/new-project/
 
 Your GitHub API token is not saved anywhere, ensuring the security of your token. You will need to enter your API token every time you visit the webpage.
 
+## Performance
+
+Gitexplorer has achieved excellent Lighthouse performance metrics for both desktop and mobile devices, ensuring a smooth and responsive user experience:
+
+- **Desktop Performance**: [![Lighthouse Desktop Score](https://img.shields.io/badge/Lighthouse%20Score-99%2F100-brightgreen)](https://pagespeed.web.dev/analysis/https-yevhenii-bezeha-github-io-new-project/n3l6pvq0rp?form_factor=desktop)
+
+- **Mobile Performance**: [![Lighthouse Mobile Score](https://img.shields.io/badge/Lighthouse%20Score-97%2F100-brightgreen)](https://pagespeed.web.dev/analysis/https-yevhenii-bezeha-github-io-new-project/n3l6pvq0rp?form_factor=mobile)
+
+These high scores reflect our commitment to optimizing performance and delivering a fast and efficient web application to our users.
+
 ## Technologies Used
 
 - Angular 
