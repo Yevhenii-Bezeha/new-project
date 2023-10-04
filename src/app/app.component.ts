@@ -8,6 +8,7 @@ import { ErrorService, HideMainSpinnerDirective, StyleLoaderService } from 'shar
 
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import {Title} from "@angular/platform-browser";
 
 @Component({
     standalone: true,
@@ -30,10 +31,12 @@ export class AppComponent implements OnInit {
     constructor(
         private errorService: ErrorService,
         private snackBar: MatSnackBar,
-        private styleLoaderService: StyleLoaderService
+        private styleLoaderService: StyleLoaderService,
+        private title: Title
     ) {}
 
     ngOnInit() {
+        this.title.setTitle('Gitexplorer');
         this.styleLoaderService.load('styles.css');
         this.styleLoaderService.load('purple-green.css');
 
